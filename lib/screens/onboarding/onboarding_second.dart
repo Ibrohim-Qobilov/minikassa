@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:minikassa/core/contants/colors.dart';
 import 'package:minikassa/core/contants/images.dart';
+import 'package:minikassa/screens/home/phone_number_page.dart';
+import 'package:minikassa/widgets/button_widget.dart';
 import 'package:minikassa/widgets/container_view.dart';
+import 'package:minikassa/widgets/text_widget.dart';
 
 class OnBorandingSecondPAge extends StatelessWidget {
   const OnBorandingSecondPAge({Key? key}) : super(key: key);
@@ -49,19 +52,24 @@ class OnBorandingSecondPAge extends StatelessWidget {
                   child: Image.asset(ImageList.logo)),
               Column(
                 children: [
-                  const Text(
-                      "Добро пожаловать в приложение\nпо учету финансовых и складских\nопераций Minikassa"),
+                  TextWidget(
+                    text:
+                        "Добро пожаловать в приложение\nпо учету финансовых и складских\nопераций Minikassa",
+                  ),
                   const SizedBox(
                     height: 20.0,
                   ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: ColorsList.primary,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0)),
-                          fixedSize: const Size(160.0, 40.0)),
-                      onPressed: () {},
-                      child: const Text("Войти"))
+                  ButtonWidget(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) =>  PhoneNumberPage(),
+                        ),
+                      );
+                    },
+                    text: 'Войти',
+                  )
                 ],
               )
             ],
@@ -69,5 +77,3 @@ class OnBorandingSecondPAge extends StatelessWidget {
     );
   }
 }
-
-
